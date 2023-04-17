@@ -1,0 +1,42 @@
+﻿@page
+@model AspTask3.Pages.EditAndDelete.EditAndDeleteModel
+@{
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<head>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<div class="container">
+	<main role="main" class="pb-3">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Name</th>
+					<th scope="col">Price</th>
+					<th scope="col">Edit Operation</th>
+					<th scope="col">Delete Operation</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.Foods)
+				{
+					<form method="post">
+					<tr>
+						<th scope="row">@item.Id</th>
+						<th scope="row">@item.Name</th>
+						<th scope="row">@item.Price<span>$</span></th>
+						<th scope="row"><button type="submit" asp-route-id="@item.Id" asp-page-handler="Edit" class="btn btn-outline-primary">Update</button></th>
+						<th scope="row"><button type="submit" class="btn btn-outline-danger" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button></th>
+
+					</tr>
+
+					</form>
+				}
+			</tbody>
+		</table>
+	</main>
+</div>

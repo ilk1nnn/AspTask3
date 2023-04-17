@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AspTask3.Entities.Food>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Name</th>
+			<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<form method="post">
+			<tr>
+				<th scope="row">@item.Id</th>
+				<th scope="row">@item.Name</th>
+				<th scope="row">@item.Price<span>$</span></th>
+			</tr>
+
+			</form>
+		}
+	</tbody>
+</table>
